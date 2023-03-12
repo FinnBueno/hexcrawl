@@ -18,7 +18,8 @@ export const en: Localization = {
         createAccount: 'Create account',
         createAccountInstead: 'Create account instead',
         signInInstead: 'Sign in instead',
-        password: 'Password'
+        password: 'Password',
+        email: 'E-mail'
     },
     title: 'MyApp'
 };

@@ -17,7 +17,8 @@ export const nl: Localization = {
         createAccount: 'Maak account',
         createAccountInstead: 'Nog geen account?',
         signInInstead: 'Heb je al een account?',
-        password: 'Wachtwoord'
+        password: 'Wachtwoord',
+        email: 'E-mail'
     },
     title: 'MyApp'
 };

@@ -14,6 +14,7 @@ export type Localization = {
         createAccountInstead: string;
         signInInstead: string;
         password: string;
+        email: string;
     };
     title: string;
 };

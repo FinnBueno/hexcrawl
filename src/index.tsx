@@ -1,35 +1,35 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
-// import { initializeApp } from 'firebase/app';
-// import { connectAuthEmulator, getAuth } from 'firebase/auth';
-// import { connectDatabaseEmulator, getDatabase } from 'firebase/database';
-// import { connectStorageEmulator, getStorage } from 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { connectAuthEmulator, getAuth } from 'firebase/auth';
+import { connectDatabaseEmulator, getDatabase } from 'firebase/database';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+import { connectStorageEmulator, getStorage } from 'firebase/storage';
 // import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import { App } from './App';
 
-// initializeApp({
-//     apiKey: '',
-//     authDomain: '<id>.firebaseapp.com',
-//     databaseURL: 'https://<id>.europe-west1.firebasedatabase.app',
-//     projectId: '',
-//     storageBucket: '<id>.appspot.com',
-//     messagingSenderId: '',
-//     appId: '',
-//     measurementId: ''
-// });
+initializeApp({
+    apiKey: 'AIzaSyDNnBsqeDa-Bz7zw7KjC2wq11yZy8KvfOw',
+    authDomain: 'hexcrawl-app.firebaseapp.com',
+    projectId: 'hexcrawl-app',
+    storageBucket: 'hexcrawl-app.appspot.com',
+    messagingSenderId: '911360704971',
+    appId: '1:911360704971:web:1d7cf8efe546fddaf3364e',
+    measurementId: 'G-99KQG17EWX'
+});
 
-// if (window.location.hostname === 'localhost') {
-//     connectAuthEmulator(getAuth(), 'http://localhost:9099');
-//     connectDatabaseEmulator(getDatabase(), 'localhost', 9000);
-//     connectStorageEmulator(getStorage(), 'localhost', 9199);
-// }
+if (window.location.hostname === 'localhost') {
+    connectAuthEmulator(getAuth(), 'http://localhost:9099');
+    connectDatabaseEmulator(getDatabase(), 'localhost', 9000);
+    connectFirestoreEmulator(getFirestore(), 'localhost', 8080);
+    connectStorageEmulator(getStorage(), 'localhost', 9199);
+}
 
-ReactDOM.render(
+createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <App />
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change
