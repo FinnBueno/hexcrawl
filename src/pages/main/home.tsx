@@ -1,9 +1,17 @@
 import { FC } from 'react';
-import { getAuth, signOut } from 'firebase/auth';
-import { Button, Text } from 'theme-ui';
+import { Flex } from 'theme-ui';
+import { Menu } from 'pages/main/menu';
+import { Map } from 'pages/main/map';
 
 export const MainPage: FC<{}> = () => (
-    <Button onClick={() => signOut(getAuth())}>
-        <Text>Sign out</Text>
-    </Button>
+    <Flex
+        sx={{
+            width: '100%',
+            height: '100%',
+            bg: 'red'
+        }}
+    >
+        <Menu />
+        <Map />
+    </Flex>
 );

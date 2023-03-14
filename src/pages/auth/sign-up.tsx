@@ -1,17 +1,19 @@
 import { FC } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Flex, Input, Text } from 'theme-ui';
+import { Button, Container, Flex, Heading, Input, Text } from 'theme-ui';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import { Translate, translate } from 'react-i18nify';
 import { toast } from 'react-toastify';
+import { InputField } from 'components/molecules';
 
 type SignUpForm = {
     username: string;
     email: string;
     password: string;
+    confirmPassword: string;
 };
 
 export const SignUpPage: FC<{}> = () => {
@@ -29,10 +31,20 @@ export const SignUpPage: FC<{}> = () => {
         password: yup
             .string()
             .min(5, translate('auth.error.passwordMinimum', { count: 5 }))
-            .required(translate('auth.error.passwordMinimum', { count: 5 }))
+            .required(translate('auth.error.passwordMinimum', { count: 5 })),
+        confirmPassword: yup
+            .string()
+            .oneOf(
+                [yup.ref('password')],
+                translate('auth.error.passwordMismatch')
+            )
     });
 
-    const { handleSubmit, register } = useForm<SignUpForm>({
+    const {
+        handleSubmit,
+        register,
+        formState: { errors }
+    } = useForm<SignUpForm>({
         resolver: yupResolver(schema)
     });
 
@@ -54,60 +66,71 @@ export const SignUpPage: FC<{}> = () => {
     };
 
     return (
-        <Flex
+        <Container
             sx={{
-                width: '100%',
-                height: '100%',
-                flexDirection: 'column',
-                justifyContent: 'flex-start'
+                display: 'flex',
+                justifyContent: 'center'
             }}
         >
-            <Text
-                variant="h4"
-                color="white"
-                style={{
-                    fontFamily:
-                        '"Arial Black", "Roboto", "Helvetica", "Arial", sans-serif'
+            <Flex
+                sx={{
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'narrow'
                 }}
+                as="form"
+                onSubmit={handleSubmit(signUp)}
             >
-                My App
-            </Text>
-            <form>
-                <Flex sx={{ flexDirection: 'column' }} m={3} mb={2}>
-                    <Text variant="h2">
+                <Flex
+                    sx={{
+                        alignItems: 'center',
+                        flexDirection: 'column',
+                        mb: 5
+                    }}
+                >
+                    <Heading as="h1">Hexcrawl</Heading>
+                    <Text>
                         <Translate value="auth.welcome" />
                     </Text>
-                    <Text variant="body1">
+                    <Text>
                         <Translate value="auth.welcomeSubtitle" />
                     </Text>
-                    <Flex mt={4} mb={2}>
-                        <Input
-                            {...register('email', { required: true })}
-                            defaultValue=""
-                            // name='email'
-                            // label='E-mail'
-                            // type='email'
-                        />
-                    </Flex>
-                    <Flex mb={2}>
-                        <Input
-                            {...register('password', { required: true })}
-                            defaultValue=""
-                            // name='password'
-                            // label={translate('auth.password')}
-                            // type='password'
-                        />
-                    </Flex>
-                    <Button variant="contained" onClick={handleSubmit(signUp)}>
-                        <Translate value="auth.createAccount" />
-                    </Button>
                 </Flex>
-            </form>
-            <Flex mt={2} sx={{ justifyContent: 'center' }}>
-                <Button onClick={() => navigate('/sign-in')}>
+                <InputField
+                    {...register('username', { required: true })}
+                    defaultValue=""
+                    label={translate('auth.username')}
+                    errors={errors}
+                    type="text"
+                />
+                <InputField
+                    {...register('email', { required: true })}
+                    defaultValue=""
+                    label={translate('auth.email')}
+                    errors={errors}
+                    type="email"
+                />
+                <InputField
+                    {...register('password', { required: true })}
+                    defaultValue=""
+                    type="password"
+                    label={translate('auth.password')}
+                    errors={errors}
+                />
+                <InputField
+                    {...register('confirmPassword', { required: true })}
+                    defaultValue=""
+                    type="password"
+                    label={translate('auth.confirmPassword')}
+                    errors={errors}
+                />
+                <Button sx={{ mt: 5 }} type="submit">
+                    <Translate value="auth.createAccount" />
+                </Button>
+                <Button variant="text" onClick={() => navigate('/sign-in')}>
                     <Translate value="auth.signInInstead" />
                 </Button>
             </Flex>
-        </Flex>
+        </Container>
     );
 };
