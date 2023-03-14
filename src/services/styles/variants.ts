@@ -21,30 +21,28 @@ Close:        buttons.close
 IconButton:   buttons.icon
 MenuButton:   buttons.menu.
 */
-const baseBtn = {
-    cursor: 'pointer',
-    fontWeight: 'button',
-    py: 3,
-    m: 2,
-    transition: 'all 100ms linear',
-    background: 'linear-gradient(#0000, rgb(0 0 0/5%)) top/100% 1000%',
-    width: '100%',
-    // maxWidth: 'button',
-    '&:hover': {
-        backgroundPosition: 'bottom'
-    },
-    '&:active': {
-        transform: 'translateY(2px) scale(.99)'
-    },
-};
 const buttons = {
     primary: {
-        ...baseBtn,
+        cursor: 'pointer',
+        fontWeight: 'button',
+        py: 3,
+        m: 2,
+        boxShadow: 'basic',
+        transition: 'all 200ms linear',
+        background: 'linear-gradient(#0000, rgb(0 0 0/10%)) top/100% 1000%',
+        width: '100%',
+        // maxWidth: 'button',
+        '&:hover': {
+            backgroundPosition: 'bottom'
+        },
+        '&:active': {
+            transform: 'translateY(2px) scale(.99)'
+        },
         color: 'white',
         bg: 'primary',
     },
     outlined: {
-        ...baseBtn,
+        variant: 'buttons.primary',
         color: 'primary',
         bg: 'white',
         borderWidth: 'button',
@@ -53,6 +51,7 @@ const buttons = {
     },
     text: {
         variant: 'buttons.outlined',
+        boxShadow: 'none',
         width: 'initial',
         borderWidth: 0,
         bg: 'none'
@@ -94,6 +93,7 @@ const forms = {
         p: 3,
         my: 1,
         border: 'none',
+        boxShadow: 'basic',
         '&:focus': {
             outlineStyle: 'solid',
             outlineWidth: 2,
@@ -122,7 +122,21 @@ const images = {};
 
 Container:    layout.container
 */
-const layout = {};
+const layout = {
+    panel: {
+        p: 3,
+        bg: 'card',
+        borderRadius: 3,
+        boxShadow: 'basic',
+    },
+    center: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%'
+    }
+};
 
 /*
 - Defaults -

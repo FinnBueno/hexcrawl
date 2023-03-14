@@ -20,6 +20,9 @@ export const scales = {
         button: 'solid'
     },
     // radii: {} / [],
-    // shadows: {} / [],
+    shadows: {
+        // horizontal, vertical, blur, spread, color
+        basic: '0px 10px 10px -8px rgba(0,0,0,.25)'
+    },
     // zIndices: {} / [],
 };

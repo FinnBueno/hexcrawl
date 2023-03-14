@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import { getAuth, signOut } from 'firebase/auth';
-import { Button, Flex, Text } from 'theme-ui';
+import { Flex } from 'theme-ui';
 
 export const Map: FC<{}> = () => (
     <Flex
