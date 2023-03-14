@@ -1,6 +1,7 @@
 type ColorTheme = {
     text: string,
     background: string,
+    card: string;
     primary: string,
     secondary: string,
     accent: string,
@@ -13,6 +14,7 @@ type ColorTheme = {
 const dark: ColorTheme = {
     text: '#EFEFFF',
     background: '#133245',
+    card: '#214053',
     primary: '#336ADA',
     secondary: '#232A5A',
     accent: '#CA4534',

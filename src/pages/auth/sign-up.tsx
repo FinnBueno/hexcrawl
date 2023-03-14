@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Container, Flex, Heading, Input, Text } from 'theme-ui';
+import { Button, Container, Flex, Heading, Text } from 'theme-ui';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
