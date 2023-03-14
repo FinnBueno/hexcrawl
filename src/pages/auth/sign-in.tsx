@@ -60,69 +60,65 @@ export const SignInPage: FC<{}> = () => {
     };
 
     return (
-        <Container>
+        <Container
+            sx={{
+                display: 'flex',
+                justifyContent: 'center'
+            }}
+        >
             <Flex
                 sx={{
-                    width: '100%',
-                    height: '100%',
-                    justifyContent: 'center',
-                    maxWidth: 'container'
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'narrow'
                 }}
+                as="form"
+                onSubmit={handleSubmit(signIn)}
             >
                 <Flex
                     sx={{
-                        flexDirection: 'column',
                         alignItems: 'center',
-                        width: 'narrow'
+                        flexDirection: 'column',
+                        mb: 5
                     }}
-                    as="form"
-                    onSubmit={handleSubmit(signIn)}
                 >
-                    <Flex
-                        sx={{
-                            alignItems: 'center',
-                            flexDirection: 'column',
-                            mb: 5
-                        }}
-                    >
-                        <Heading as="h1">My App</Heading>
-                        <Text>
-                            <Translate value="auth.welcome" />
-                        </Text>
-                        <Text>
-                            <Translate value="auth.welcomeSubtitle" />
-                        </Text>
-                    </Flex>
-                    <InputField
-                        {...register('email', { required: true })}
-                        defaultValue=""
-                        label={translate('auth.email')}
-                        errors={errors}
-                        type="email"
-                    />
-                    <InputField
-                        {...register('password', { required: true })}
-                        defaultValue=""
-                        type="password"
-                        label={translate('auth.password')}
-                        errors={errors}
-                    />
-                    <Button sx={{ mt: 5 }} type="submit">
-                        <span>
-                            <Translate value="auth.signIn" />
-                        </span>
-                    </Button>
-                    <ButtonWithIcon
-                        variant="outlined"
-                        onClick={signInWithGoogle}
-                        icon={<FcGoogle size={20} />}
-                    >
-                        <Translate value="auth.signInWithGoogle" />
-                    </ButtonWithIcon>
-                    <Button variant="text" onClick={() => navigate('/sign-up')}>
-                        <Translate value="auth.createAccountInstead" />
-                    </Button>
+                    <Heading as="h1">Hexcrawl</Heading>
+                    <Text>
+                        <Translate value="auth.welcome" />
+                    </Text>
+                    <Text>
+                        <Translate value="auth.welcomeSubtitle" />
+                    </Text>
                 </Flex>
+                <InputField
+                    {...register('email', { required: true })}
+                    defaultValue=""
+                    label={translate('auth.email')}
+                    errors={errors}
+                    type="email"
+                />
+                <InputField
+                    {...register('password', { required: true })}
+                    defaultValue=""
+                    type="password"
+                    label={translate('auth.password')}
+                    errors={errors}
+                />
+                <Button sx={{ mt: 5 }} type="submit">
+                    <span>
+                        <Translate value="auth.signIn" />
+                    </span>
+                </Button>
+                <ButtonWithIcon
+                    variant="outlined"
+                    onClick={signInWithGoogle}
+                    icon={<FcGoogle size={20} />}
+                >
+                    <Translate value="auth.signInWithGoogle" />
+                </ButtonWithIcon>
+                <Button variant="text" onClick={() => navigate('/sign-up')}>
+                    <Translate value="auth.createAccountInstead" />
+                </Button>
             </Flex>
         </Container>
     );

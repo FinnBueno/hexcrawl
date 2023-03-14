@@ -5,6 +5,7 @@ export type Localization = {
             passwordMinimum: string;
             emailValid: string;
             usernameMinimum: string;
+            passwordMismatch: string;
         };
         welcome: string;
         welcomeSubtitle: string;
@@ -13,7 +14,9 @@ export type Localization = {
         createAccount: string;
         createAccountInstead: string;
         signInInstead: string;
+        username: string;
         password: string;
+        confirmPassword: string;
         email: string;
     };
     title: string;
