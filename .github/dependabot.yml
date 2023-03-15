@@ -6,6 +6,6 @@ updates:
     schedule:
         interval: "weekly"
     allow:
-        dependency-type: "direct"
+      -  dependency-type: "direct"
     reviewers:
       - "FinnBueno"
