@@ -1,6 +1,7 @@
 import { Localization } from './type';
 
 export const nl: Localization = {
+    genericError: 'Er is iets fout gegaan. Probeer het later nog eens.',
     auth: {
         error: {
             emailAlreadyInUse: 'Dit e-mail adres is al in gebruik',

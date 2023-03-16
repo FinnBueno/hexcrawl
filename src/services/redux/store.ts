@@ -1,18 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
-import { projectsList } from "services/redux/slices/projects-list";
+import { projectsListSlice } from "services/redux/projects-list";
 
 export const store = configureStore({
     reducer: {
-        projectsList: projectsList.reducer
-    }
+        projectsList: projectsListSlice.reducer
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+        immutableCheck: true
+    })
 });
-
-export const actions = {
-    projectsList: {
-        ...projectsList.actions
-    }
-};
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;

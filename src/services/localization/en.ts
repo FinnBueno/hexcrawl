@@ -1,6 +1,7 @@
 import { Localization } from './type';
 
 export const en: Localization = {
+    genericError: 'An error occurred while performing this action. Please try again later.',
     auth: {
         error: {
             emailAlreadyInUse:
