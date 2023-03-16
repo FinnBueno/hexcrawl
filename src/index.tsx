@@ -19,7 +19,10 @@ initializeApp({
     measurementId: 'G-99KQG17EWX'
 });
 
-if (window.location.hostname === 'localhost') {
+if (
+    window.location.hostname === 'localhost' ||
+    window.location.hostname.includes('192.168.')
+) {
     connectAuthEmulator(getAuth(), 'http://localhost:9099');
     connectDatabaseEmulator(getDatabase(), 'localhost', 9000);
     connectFirestoreEmulator(getFirestore(), 'localhost', 8080);

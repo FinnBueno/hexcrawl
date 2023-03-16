@@ -1,4 +1,5 @@
 export type Localization = {
+    genericError: string;
     auth: {
         error: {
             emailAlreadyInUse: string;

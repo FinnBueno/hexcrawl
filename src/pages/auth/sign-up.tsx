@@ -4,7 +4,11 @@ import { Button, Container, Flex, Heading, Text } from 'theme-ui';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    updateProfile
+} from 'firebase/auth';
 import { Translate, translate } from 'react-i18nify';
 import { toast } from 'react-toastify';
 import { InputField } from 'components/molecules';
@@ -50,18 +54,19 @@ export const SignUpPage: FC<{}> = () => {
 
     const navigate = useNavigate();
 
-    const signUp = ({ email, password }: SignUpForm) => {
+    const signUp = ({ email, password, username }: SignUpForm) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(({ user }) => {
-                toast(`Welcome ${user.displayName}!`, {
-                    type: 'success'
-                });
+                updateProfile(user, {
+                    displayName: username
+                }).catch(() => toast.error(translate('genericError')));
+                return username;
             })
-            .catch((_error) => {
-                // TODO: Check for the right error code
-                toast(translate('auth.error.emailAlreadyInUse'), {
-                    type: 'error'
-                });
+            .then((displayName) => {
+                toast.success(`Welcome ${displayName}!`);
+            })
+            .catch(() => {
+                toast.error(translate('auth.error.emailAlreadyInUse'));
             });
     };
 
