@@ -59,15 +59,11 @@
         "@types/reflexbox": "^4.0.5",
         "@types/yup": "^0.32.0",
         "@typescript-eslint/eslint-plugin": "^5.54.1",
-<<<<<<< HEAD
         "eslint": "^8.39.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.7.0",
         "eslint-import-resolver-typescript": "^3.5.3",
         "eslint-plugin-react": "^7.32.2",
-=======
-        "eslint": "^8.35.0",
->>>>>>> fa606ad (use eslint config finnbueno)
         "husky": "^8.0.3"
     },
     "husky": {
