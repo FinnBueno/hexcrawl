@@ -1,7 +1,11 @@
 import { FC } from 'react';
-import { Flex } from 'theme-ui';
+import { Button, Flex } from 'theme-ui';
 
-export const Map: FC<{}> = () => (
+type MapProps = {
+    toggleMenu: () => void;
+};
+
+export const Map: FC<MapProps> = ({ toggleMenu }) => (
     <Flex
         sx={{
             flex: 4,
@@ -10,6 +14,6 @@ export const Map: FC<{}> = () => (
             bg: 'blue'
         }}
     >
-        Test
+        <Button onClick={toggleMenu}>Toggle menu</Button>
     </Flex>
 );

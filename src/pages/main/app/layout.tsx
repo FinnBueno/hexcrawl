@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Flex } from 'theme-ui';
 import { Menu } from 'pages/main/app/menu';
 import { Map } from 'pages/main/app/map';
@@ -9,6 +9,7 @@ import { store } from 'services/redux/store';
 
 export const AppLayout: FC<{}> = () => {
     const { projectId } = useParams();
+    const [showMenu, setShowMenu] = useState(false);
     return (
         <Provider store={store}>
             {projectId ? (
@@ -18,8 +19,8 @@ export const AppLayout: FC<{}> = () => {
                         height: '100%'
                     }}
                 >
-                    <Menu />
-                    <Map />
+                    <Menu show={showMenu} />
+                    <Map toggleMenu={() => setShowMenu(!showMenu)} />
                 </Flex>
             ) : (
                 <ProjectsList />

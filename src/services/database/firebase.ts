@@ -1,17 +1,26 @@
-import { FirebaseApp } from "firebase/app";
-import { Database, getDatabase, onValue, ref } from "firebase/database";
-import { IDatabase } from "services/database/database";
-import { ProjectSummary } from "services/types/types";
+import { ref, Database, getDatabase } from 'firebase/database';
+import { generateData } from 'services/redux/projects-list';
+// import { IDatabase } from "services/database/database";
+import { ProjectSummary } from 'services/types/types';
 
-export class FirebaseDB extends IDatabase {
+export class FirebaseDB {
+    private readonly database: Database;
+
+    constructor() {
+        this.database = getDatabase();
+    }
+
     fetchProjectSummaries(): Promise<ProjectSummary[]> {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve, _reject) => {
+            // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
             const projectSummaryRef = ref(
                 this.database,
                 `summaries` // TODO: Make proper path with user uid
             );
             // TODO: This is used to listen continuously. Figure out a way to listen for changes using this DB class.
-            onValue(projectSummaryRef, snapshot => resolve(snapshot.val()))();
-        })
+
+            // get(projectSummaryRef).then(snapshot => resolve(snapshot.val() || []));
+            generateData().then(resolve);
+        });
     }
 }

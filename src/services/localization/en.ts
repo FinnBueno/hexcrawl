@@ -1,7 +1,8 @@
 import { Localization } from './type';
 
 export const en: Localization = {
-    genericError: 'An error occurred while performing this action. Please try again later.',
+    genericError:
+        'An error occurred while performing this action. Please try again later.',
     auth: {
         error: {
             emailAlreadyInUse:
@@ -11,7 +12,7 @@ export const en: Localization = {
             emailValid: 'Make sure you fill in a valid e-mail',
             usernameMinimum:
                 'Make sure your username has at least %{count} characters',
-            passwordMismatch: 'Passwords don\'t match'
+            passwordMismatch: "Passwords don't match"
         },
         welcome: 'Welcome',
         welcomeSubtitle: 'Get started below',

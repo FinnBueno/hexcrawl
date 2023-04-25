@@ -1,16 +1,19 @@
 import { FC } from 'react';
 import { Flex } from 'theme-ui';
 
-export const Menu: FC<{}> = () => (
-    <Flex
-        sx={{
-            flex: 1,
-            minWidth: '250px',
-            width: '100%',
-            height: '100%',
-            bg: 'green'
-        }}
-    >
-        Test
-    </Flex>
-);
+export const Menu: FC<{ show: boolean }> = ({ show }) => {
+    if (!show) return <></>;
+    return (
+        <Flex
+            sx={{
+                position: 'absolute',
+                flex: 1,
+                width: '250px',
+                height: '100%',
+                bg: 'green'
+            }}
+        >
+            Test
+        </Flex>
+    );
+};

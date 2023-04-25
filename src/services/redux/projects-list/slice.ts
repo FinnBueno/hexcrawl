@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchProjects } from "services/redux/projects-list/thunk";
-import { ProjectSummary } from "services/types/types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchProjects } from 'services/redux/projects-list/thunk';
+import { ProjectSummary } from 'services/types/types';
 import { LoadingState } from '../loading';
 
 const initialState = {
@@ -16,7 +16,7 @@ export const projectsListSlice = createSlice({
             state.projects = action.payload;
         }
     },
-    extraReducers: builder => {
+    extraReducers: (builder) => {
         builder
             .addCase(fetchProjects.fulfilled, (state, action) => {
                 state.projects = action.payload;

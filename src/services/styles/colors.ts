@@ -1,15 +1,15 @@
 type ColorTheme = {
-    text: string,
-    background: string,
+    text: string;
+    background: string;
     card: string;
-    primary: string,
-    secondary: string,
-    accent: string,
-    highlight: string,
-    muted: string,
-    error: string,
-    input: string
-}
+    primary: string;
+    secondary: string;
+    accent: string;
+    highlight: string;
+    muted: string;
+    error: string;
+    input: string;
+};
 
 const dark: ColorTheme = {
     text: '#EFEFFF',

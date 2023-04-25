@@ -7,7 +7,7 @@ export const scales = {
         //     wide: 2048,
         container: 1024,
         narrow: 512,
-        button: 256,
+        button: 256
     },
     borders: {
         button: 'primary'
@@ -23,6 +23,6 @@ export const scales = {
     shadows: {
         // horizontal, vertical, blur, spread, color
         basic: '0px 10px 10px -8px rgba(0,0,0,.25)'
-    },
+    }
     // zIndices: {} / [],
 };

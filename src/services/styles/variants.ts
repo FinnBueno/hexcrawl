@@ -39,7 +39,7 @@ const buttons = {
             transform: 'translateY(2px) scale(.99)'
         },
         color: 'white',
-        bg: 'primary',
+        bg: 'primary'
     },
     outlined: {
         variant: 'buttons.primary',
@@ -47,7 +47,7 @@ const buttons = {
         bg: 'white',
         borderWidth: 'button',
         borderStyle: 'button',
-        borderColor: 'primary',
+        borderColor: 'primary'
     },
     text: {
         variant: 'buttons.outlined',
@@ -80,7 +80,7 @@ const forms = {
     label: {
         fontWeight: 'bold',
         fontSize: 1,
-        color: 'muted',
+        color: 'muted'
     },
     error: {
         fontWeight: 'bold',
@@ -97,7 +97,7 @@ const forms = {
         '&:focus': {
             outlineStyle: 'solid',
             outlineWidth: 2,
-            outlineColor: 'muted',
+            outlineColor: 'muted'
         }
     }
 };
@@ -127,7 +127,7 @@ const layout = {
         p: 3,
         bg: 'card',
         borderRadius: 3,
-        boxShadow: 'basic',
+        boxShadow: 'basic'
     },
     center: {
         display: 'flex',
