@@ -73,8 +73,6 @@
         }
     },
     "overrides": {
-        "react-scripts": {
-            "typescript": "^5"
-        }
+        "typescript": "^5"
     }
 }
