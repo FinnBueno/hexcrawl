@@ -6,17 +6,20 @@
         "@emotion/react": "^11.10.6",
         "@hookform/resolvers": "^3.0.0",
         "@mui/material": "^5.11.12",
+        "@reduxjs/toolkit": "^1.9.3",
         "@types/react": "^18.0.28",
         "color": "^4.2.3",
         "dayjs": "^1.11.7",
         "firebase": "^9.18.0",
         "prettier": "^2.8.8",
+        "eslint-config-finnbueno-react": "^1.1.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.43.9",
         "react-i18nify": "^6.0.0",
         "react-icons": "^4.8.0",
         "react-router-dom": "^6.10.0",
+        "react-redux": "^8.0.5",
         "react-scripts": "5.0.1",
         "react-toastify": "^9.1.1",
         "theme-ui": "^0.15.5",
@@ -32,10 +35,7 @@
         "prettify": "prettier --config .prettierrc \"./src/**/*.{ts,tsx}\" --write",
         "eslint": "eslint . --ext .tsx --ext .ts",
         "lint": "yarn prettify && npm run eslint -- --fix",
-        "emulators": "firebase emulators:start --import=./emulator-data --export-on-exit"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
+        "emulators": "firebase emulators:start --import=\"./emulator-data\" --export-on-exit"
     },
     "browserslist": {
         "production": [
