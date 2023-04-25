@@ -73,6 +73,6 @@
         }
     },
     "overrides": {
-        "typescript": "^5"
+        "typescript": "^5.0.2"
     }
 }
