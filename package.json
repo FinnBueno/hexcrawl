@@ -71,5 +71,8 @@
             "pre-commit": "npm run prettier-format && npm run lint",
             "pre-push": "npm run prettier-format && npm run lint"
         }
+    },
+    "overrides": {
+        "typescript": "^5.0.2"
     }
 }
