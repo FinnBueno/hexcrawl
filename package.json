@@ -4,7 +4,7 @@
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.10.6",
-        "@hookform/resolvers": "^3.0.0",
+        "@hookform/resolvers": "^3.1.0",
         "@mui/material": "^5.11.12",
         "@reduxjs/toolkit": "^1.9.3",
         "@types/react": "^18.0.28",
